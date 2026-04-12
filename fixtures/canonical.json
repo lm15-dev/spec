@@ -1,0 +1,563 @@
+{
+  "data_source_base64": {
+    "type": "base64",
+    "media_type": "image/png",
+    "data": "iVBOR"
+  },
+  "data_source_url": {
+    "type": "url",
+    "media_type": "image/png",
+    "url": "https://example.com/img.png"
+  },
+  "data_source_file": {
+    "type": "file",
+    "media_type": "image/png",
+    "file_id": "file-abc123"
+  },
+  "part_text": {
+    "type": "text",
+    "text": "Hello, world!"
+  },
+  "part_thinking": {
+    "type": "thinking",
+    "text": "Let me think...",
+    "redacted": false,
+    "summary": "Reasoning"
+  },
+  "part_thinking_redacted": {
+    "type": "thinking",
+    "text": "[redacted]",
+    "redacted": true
+  },
+  "part_refusal": {
+    "type": "refusal",
+    "text": "I cannot do that."
+  },
+  "part_citation": {
+    "type": "citation",
+    "text": "Source",
+    "url": "https://example.com",
+    "title": "Example"
+  },
+  "part_image_url": {
+    "type": "image",
+    "source": {
+      "type": "url",
+      "media_type": "image/jpeg",
+      "url": "https://example.com/cat.jpg"
+    }
+  },
+  "part_image_base64": {
+    "type": "image",
+    "source": {
+      "type": "base64",
+      "media_type": "image/png",
+      "data": "iVBOR"
+    }
+  },
+  "part_audio": {
+    "type": "audio",
+    "source": {
+      "type": "base64",
+      "media_type": "audio/wav",
+      "data": "AAAA"
+    }
+  },
+  "part_video": {
+    "type": "video",
+    "source": {
+      "type": "url",
+      "media_type": "video/mp4",
+      "url": "https://example.com/clip.mp4"
+    }
+  },
+  "part_document": {
+    "type": "document",
+    "source": {
+      "type": "url",
+      "media_type": "application/pdf",
+      "url": "https://example.com/doc.pdf"
+    }
+  },
+  "part_tool_call": {
+    "type": "tool_call",
+    "id": "call_1",
+    "name": "get_weather",
+    "input": {
+      "city": "Montreal"
+    }
+  },
+  "part_tool_result": {
+    "type": "tool_result",
+    "id": "call_1",
+    "name": "get_weather",
+    "content": [
+      {
+        "type": "text",
+        "text": "22°C"
+      }
+    ]
+  },
+  "part_tool_result_error": {
+    "type": "tool_result",
+    "id": "call_1",
+    "name": "search",
+    "content": [
+      {
+        "type": "text",
+        "text": "not found"
+      }
+    ],
+    "is_error": true
+  },
+  "message_user": {
+    "role": "user",
+    "parts": [
+      {
+        "type": "text",
+        "text": "Hello"
+      }
+    ]
+  },
+  "message_assistant": {
+    "role": "assistant",
+    "parts": [
+      {
+        "type": "text",
+        "text": "Hi there!"
+      }
+    ]
+  },
+  "message_multimodal": {
+    "role": "user",
+    "parts": [
+      {
+        "type": "text",
+        "text": "Describe this image."
+      },
+      {
+        "type": "image",
+        "source": {
+          "type": "url",
+          "media_type": "image/jpeg",
+          "url": "https://example.com/photo.jpg"
+        }
+      }
+    ]
+  },
+  "message_tool_results": {
+    "role": "tool",
+    "parts": [
+      {
+        "type": "tool_result",
+        "id": "call_1",
+        "content": [
+          {
+            "type": "text",
+            "text": "22°C"
+          }
+        ]
+      },
+      {
+        "type": "tool_result",
+        "id": "call_2",
+        "content": [
+          {
+            "type": "text",
+            "text": "sunny"
+          }
+        ]
+      }
+    ]
+  },
+  "tool_function": {
+    "name": "get_weather",
+    "type": "function",
+    "description": "Get weather by city",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "city"
+      ]
+    }
+  },
+  "tool_function_minimal": {
+    "name": "ping",
+    "type": "function",
+    "parameters": {
+      "type": "object"
+    }
+  },
+  "tool_builtin": {
+    "name": "web_search",
+    "type": "builtin",
+    "description": "Search the web"
+  },
+  "config_default": {},
+  "config_full": {
+    "max_tokens": 1024,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "stop": [
+      "\n\n"
+    ],
+    "reasoning": {
+      "enabled": true,
+      "budget": 5000,
+      "effort": "high"
+    },
+    "provider": {
+      "prompt_caching": true
+    }
+  },
+  "request_simple": {
+    "model": "gpt-4.1-mini",
+    "messages": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "type": "text",
+            "text": "Hello"
+          }
+        ]
+      }
+    ]
+  },
+  "request_with_system": {
+    "model": "claude-sonnet-4-5",
+    "messages": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "type": "text",
+            "text": "Summarize DNA."
+          }
+        ]
+      }
+    ],
+    "system": "You are terse."
+  },
+  "request_with_tools": {
+    "model": "gpt-4.1-mini",
+    "messages": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "type": "text",
+            "text": "Weather in Montreal?"
+          }
+        ]
+      }
+    ],
+    "tools": [
+      {
+        "name": "get_weather",
+        "type": "function",
+        "description": "Get weather",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "city"
+          ]
+        }
+      }
+    ]
+  },
+  "request_multimodal": {
+    "model": "gemini-2.5-flash",
+    "messages": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "type": "text",
+            "text": "Describe this."
+          },
+          {
+            "type": "image",
+            "source": {
+              "type": "url",
+              "media_type": "image/jpeg",
+              "url": "https://example.com/photo.jpg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "response_text": {
+    "id": "resp_001",
+    "model": "gpt-4.1-mini",
+    "message": {
+      "role": "assistant",
+      "parts": [
+        {
+          "type": "text",
+          "text": "Hello!"
+        }
+      ]
+    },
+    "finish_reason": "stop",
+    "usage": {
+      "input_tokens": 10,
+      "output_tokens": 5,
+      "total_tokens": 15
+    }
+  },
+  "response_tool_call": {
+    "id": "resp_002",
+    "model": "gpt-4.1-mini",
+    "message": {
+      "role": "assistant",
+      "parts": [
+        {
+          "type": "tool_call",
+          "id": "call_1",
+          "name": "get_weather",
+          "input": {
+            "city": "Montreal"
+          }
+        }
+      ]
+    },
+    "finish_reason": "tool_call",
+    "usage": {
+      "input_tokens": 20,
+      "output_tokens": 15,
+      "total_tokens": 35
+    }
+  },
+  "response_with_thinking": {
+    "id": "resp_003",
+    "model": "claude-sonnet-4-5",
+    "message": {
+      "role": "assistant",
+      "parts": [
+        {
+          "type": "thinking",
+          "text": "Let me work through this..."
+        },
+        {
+          "type": "text",
+          "text": "The answer is 42."
+        }
+      ]
+    },
+    "finish_reason": "stop",
+    "usage": {
+      "input_tokens": 50,
+      "output_tokens": 30,
+      "total_tokens": 80,
+      "reasoning_tokens": 20
+    }
+  },
+  "response_with_cache": {
+    "id": "resp_004",
+    "model": "claude-sonnet-4-5",
+    "message": {
+      "role": "assistant",
+      "parts": [
+        {
+          "type": "text",
+          "text": "Done."
+        }
+      ]
+    },
+    "finish_reason": "stop",
+    "usage": {
+      "input_tokens": 100,
+      "output_tokens": 10,
+      "total_tokens": 110,
+      "cache_read_tokens": 80,
+      "cache_write_tokens": 20
+    }
+  },
+  "usage_minimal": {
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "total_tokens": 0
+  },
+  "usage_full": {
+    "input_tokens": 100,
+    "output_tokens": 50,
+    "total_tokens": 150,
+    "cache_read_tokens": 80,
+    "cache_write_tokens": 20,
+    "reasoning_tokens": 30,
+    "input_audio_tokens": 10,
+    "output_audio_tokens": 5
+  },
+  "stream_start": {
+    "type": "start",
+    "id": "resp_001",
+    "model": "gpt-4.1-mini"
+  },
+  "stream_text_delta": {
+    "type": "delta",
+    "part_index": 0,
+    "delta": {
+      "type": "text",
+      "text": "Hello"
+    }
+  },
+  "stream_thinking_delta": {
+    "type": "delta",
+    "part_index": 0,
+    "delta": {
+      "type": "thinking",
+      "text": "Hmm..."
+    }
+  },
+  "stream_audio_delta": {
+    "type": "delta",
+    "part_index": 0,
+    "delta": {
+      "type": "audio",
+      "data": "AAAA"
+    }
+  },
+  "stream_tool_call_delta": {
+    "type": "delta",
+    "part_index": 0,
+    "delta": {
+      "type": "tool_call",
+      "id": "call_1",
+      "name": "get_weather",
+      "input": "{\"city\":\"Montreal\"}"
+    }
+  },
+  "stream_end": {
+    "type": "end",
+    "finish_reason": "stop",
+    "usage": {
+      "input_tokens": 10,
+      "output_tokens": 5,
+      "total_tokens": 15
+    }
+  },
+  "stream_error": {
+    "type": "error",
+    "error": {
+      "code": "rate_limit",
+      "provider_code": "rate_limit_exceeded",
+      "message": "Too many requests"
+    }
+  },
+  "live_client_text": {
+    "type": "text",
+    "text": "Hello"
+  },
+  "live_client_audio": {
+    "type": "audio",
+    "data": "AAAA"
+  },
+  "live_client_video": {
+    "type": "video",
+    "data": "AAAA"
+  },
+  "live_client_interrupt": {
+    "type": "interrupt"
+  },
+  "live_client_end_audio": {
+    "type": "end_audio"
+  },
+  "live_client_tool_result": {
+    "type": "tool_result",
+    "id": "call_1",
+    "content": [
+      {
+        "type": "text",
+        "text": "22°C"
+      }
+    ]
+  },
+  "live_server_text": {
+    "type": "text",
+    "text": "Hello"
+  },
+  "live_server_audio": {
+    "type": "audio",
+    "data": "AAAA"
+  },
+  "live_server_tool_call": {
+    "type": "tool_call",
+    "id": "call_1",
+    "name": "get_weather",
+    "input": {
+      "city": "Montreal"
+    }
+  },
+  "live_server_interrupted": {
+    "type": "interrupted"
+  },
+  "live_server_turn_end": {
+    "type": "turn_end",
+    "usage": {
+      "input_tokens": 10,
+      "output_tokens": 5,
+      "total_tokens": 15
+    }
+  },
+  "live_server_error": {
+    "type": "error",
+    "error": {
+      "code": "server",
+      "message": "Internal error"
+    }
+  },
+  "live_config_minimal": {
+    "model": "gemini-3.1-flash-live-preview"
+  },
+  "live_config_full": {
+    "model": "gemini-3.1-flash-live-preview",
+    "system": "You are helpful.",
+    "tools": [
+      {
+        "name": "get_weather",
+        "type": "function",
+        "description": "Get weather",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    ],
+    "voice": "Kore",
+    "input_format": {
+      "encoding": "pcm16",
+      "sample_rate": 16000,
+      "channels": 1
+    },
+    "output_format": {
+      "encoding": "pcm16",
+      "sample_rate": 24000,
+      "channels": 1
+    }
+  },
+  "error_info_simple": {
+    "code": "auth",
+    "message": "Invalid API key"
+  },
+  "error_info_with_provider": {
+    "code": "rate_limit",
+    "provider_code": "rate_limit_exceeded",
+    "message": "Too many requests"
+  }
+}
