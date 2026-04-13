@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/lm15-dev/.github/main/assets/banners/banner-1200x300.png" alt="lm15" width="600">
+</p>
+
 # lm15 spec
 
 Canonical type definitions, wire format, and shared test fixtures for lm15 implementations.
