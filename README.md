@@ -1,25 +1,18 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/lm15-dev/.github/main/assets/banners/banner-1200x300.png" alt="lm15" width="600">
-</p>
+# ARCHIVED
 
-# lm15 spec
+**This repository is archived and must not be used as a reference.**
 
-Canonical type definitions, wire format, and shared test fixtures for lm15 implementations.
+It was formerly the source of truth for the lm15 type system, but it
+documents the v1-generation design (lm15-python 0.2.0): nested `DataSource`,
+`ToolConfig`/`ReasoningConfig`, `LMRequest`/`LMResponse`, accessor-style
+`Part`, `ULMError`. The current reference implementation (`lm15-python2`)
+removed or renamed most of these; the fixtures in `fixtures/canonical.json`
+do not round-trip through the current serde.
 
-This repo is the **source of truth** for the lm15 type system. Language-specific implementations ([Python](https://github.com/lm15-dev/lm15-python), [TypeScript](https://github.com/lm15-dev/lm15-ts)) must conform to these definitions.
+The single source of truth for lm15 behavior is now the
+**`lm15-contract`** repository (fixture corpus + `AUTHORITY.md` precedence
+rules). Type-system documentation lives with the reference implementation
+until its extraction into the contract repo.
 
-## Contents
-
-| Path | What |
-|---|---|
-| [`types.md`](types.md) | Canonical type definitions — every struct, enum, and constraint |
-| [`fixtures/`](fixtures/) | JSON test fixtures — request/response pairs for validation |
-| [`CHANGELOG.md`](CHANGELOG.md) | Breaking changes to the spec |
-
-## Versioning
-
-The spec uses calendar versioning (`YYYY.MM`). Language implementations declare which spec version they target.
-
-## License
-
-MIT
+Nothing here will be updated. It is kept only for the historical record of
+the v1 design.
