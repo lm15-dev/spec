@@ -460,13 +460,25 @@
     "type": "text",
     "text": "Hello"
   },
+  "live_client_turn": {
+    "type": "turn",
+    "parts": [
+      {
+        "type": "text",
+        "text": "Hello"
+      }
+    ],
+    "turn_complete": true
+  },
   "live_client_audio": {
     "type": "audio",
-    "data": "AAAA"
+    "data": "AAAA",
+    "media_type": "audio/pcm;rate=16000"
   },
-  "live_client_video": {
-    "type": "video",
-    "data": "AAAA"
+  "live_client_image": {
+    "type": "image",
+    "data": "AAAA",
+    "media_type": "image/jpeg"
   },
   "live_client_interrupt": {
     "type": "interrupt"

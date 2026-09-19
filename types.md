@@ -397,8 +397,11 @@ Derived properties:
 
 | Field | Type | Required | Constraints |
 |---|---|---|---|
-| `type` | `"audio"` \| `"video"` \| `"text"` \| `"tool_result"` \| `"interrupt"` \| `"end_audio"` | ✅ | |
-| `data` | string? | | required if type ∈ {"audio", "video"} |
+| `type` | `"turn"` \| `"audio"` \| `"image"` \| `"text"` \| `"tool_result"` \| `"interrupt"` \| `"end_audio"` | ✅ | |
+| `parts` | PromptPart[] | | required if type = "turn" |
+| `turn_complete` | bool | `true` | only for type = "turn" |
+| `data` | string? | | required if type ∈ {"audio", "image"} |
+| `media_type` | string? | | required if type ∈ {"audio", "image"}; audio must start `audio/`, image must start `image/` |
 | `text` | string? | | required if type = "text" |
 | `id` | string? | | required if type = "tool_result" |
 | `content` | Part[] | `[]` | required if type = "tool_result" |
@@ -407,8 +410,9 @@ Derived properties:
 
 | Field | Type | Required | Constraints |
 |---|---|---|---|
-| `type` | `"audio"` \| `"text"` \| `"tool_call"` \| `"interrupted"` \| `"turn_end"` \| `"error"` | ✅ | |
+| `type` | `"audio"` \| `"text"` \| `"tool_call"` \| `"tool_call_delta"` \| `"interrupted"` \| `"turn_end"` \| `"error"` | ✅ | |
 | `data` | string? | | required if type = "audio" |
+| `media_type` | string? | | optional if type = "audio"; must start `audio/` |
 | `text` | string? | | required if type = "text" |
 | `id` | string? | | required if type = "tool_call" |
 | `name` | string? | | required if type = "tool_call" |
